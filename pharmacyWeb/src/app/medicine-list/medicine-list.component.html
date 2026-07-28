@@ -1,0 +1,95 @@
+<div class="d-flex align-items-center justify-content-between flex-wrap gap-2 mb-3">
+  <h1 class="h3 mb-0">Medicines</h1>
+  <div class="d-flex gap-2">
+    <a routerLink="/sales" class="btn btn-outline-secondary">View Sales History</a>
+    <button type="button" class="btn btn-primary" (click)="showAddForm = !showAddForm">
+      {{ showAddForm ? 'Close' : '+ Add Medicine' }}
+    </button>
+  </div>
+</div>
+
+@if (showAddForm) {
+  <div class="card mb-4">
+    <div class="card-body">
+      <app-add-medicine (added)="onMedicineAdded()" (cancelled)="showAddForm = false"></app-add-medicine>
+    </div>
+  </div>
+}
+
+<div class="mb-3">
+  <input
+    type="text"
+    class="form-control"
+    style="max-width: 360px"
+    placeholder="Search by name, brand or notes…"
+    [ngModel]="searchTerm"
+    (ngModelChange)="onSearchChange($event)"
+  />
+</div>
+
+<div class="d-flex gap-4 small text-secondary mb-3">
+  <span><span class="badge bg-danger">&nbsp;</span> Expiring in under 30 days</span>
+  <span><span class="badge bg-warning">&nbsp;</span> Quantity in stock under 10</span>
+</div>
+
+@if (errorMessage) {
+  <div class="alert alert-danger">{{ errorMessage }}</div>
+}
+
+@if (loading) {
+  <p>Loading medicines…</p>
+} @else if (medicines.length === 0) {
+  <p>No medicines found.</p>
+} @else {
+  <div class="table-responsive">
+    <table class="table table-bordered table-hover align-middle bg-white">
+      <thead class="table-light">
+        <tr>
+          <th>Full Name</th>
+          <th>Expiry Date</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Brand</th>
+          <th>Sell</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (medicine of medicines; track medicine.id) {
+          <tr>
+            <td>{{ medicine.fullName }}</td>
+            <td [class.table-danger]="isExpiringSoon(medicine)">{{ medicine.expiryDate | date: 'mediumDate' }}</td>
+            <td [class.table-warning]="isLowStock(medicine)">{{ medicine.quantity }}</td>
+            <td>{{ medicine.price | number: '1.2-2' }}</td>
+            <td>{{ medicine.brand }}</td>
+            <td>
+              <div class="input-group input-group-sm" style="width: 140px">
+                <input
+                  type="number"
+                  min="1"
+                  [max]="medicine.quantity"
+                  [(ngModel)]="sellQuantity[medicine.id]"
+                  [ngModelOptions]="{ standalone: true }"
+                  class="form-control"
+                />
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  [disabled]="selling[medicine.id] || medicine.quantity === 0"
+                  (click)="sell(medicine)"
+                >
+                  Sell
+                </button>
+              </div>
+              @if (sellSuccess[medicine.id]) {
+                <div class="small text-success mt-1">{{ sellSuccess[medicine.id] }}</div>
+              }
+              @if (sellError[medicine.id]) {
+                <div class="small text-danger mt-1">{{ sellError[medicine.id] }}</div>
+              }
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+}

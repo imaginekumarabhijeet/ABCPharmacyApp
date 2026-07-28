@@ -1,0 +1,74 @@
+[
+  {
+    "id": "baaf214b23554b3ab7d54846274fc249",
+    "fullName": "Paracetamol 500mg",
+    "notes": "Pain reliever and fever reducer",
+    "expiryDate": "2027-01-24",
+    "quantity": 120,
+    "price": 3.50,
+    "brand": "Calpol"
+  },
+  {
+    "id": "bdbfe5785b6841aea731ac0c41f127e8",
+    "fullName": "Amoxicillin 250mg",
+    "notes": "Antibiotic capsule, course of 7 days",
+    "expiryDate": "2026-08-12",
+    "quantity": 45,
+    "price": 8.25,
+    "brand": "Amoxil"
+  },
+  {
+    "id": "20d6157614994cb0b9728e8b188f51f7",
+    "fullName": "Cetirizine 10mg",
+    "notes": "Antihistamine for seasonal allergies",
+    "expiryDate": "2026-10-26",
+    "quantity": 8,
+    "price": 4.75,
+    "brand": "Zyrtec"
+  },
+  {
+    "id": "e20ec4541e614719a8f19f0ef386f105",
+    "fullName": "Ibuprofen 200mg",
+    "notes": "NSAID pain and inflammation reliever",
+    "expiryDate": "2026-08-07",
+    "quantity": 5,
+    "price": 5.00,
+    "brand": "Advil"
+  },
+  {
+    "id": "2d27ccd9debc4aa2955b9780ae37fe0d",
+    "fullName": "Omeprazole 20mg",
+    "notes": "Reduces stomach acid production",
+    "expiryDate": "2027-03-25",
+    "quantity": 60,
+    "price": 12.99,
+    "brand": "Prilosec"
+  },
+  {
+    "id": "1dee7bec254942e187a14cb2ccc553ed",
+    "fullName": "Metformin 500mg",
+    "notes": "Type 2 diabetes management",
+    "expiryDate": "2027-07-28",
+    "quantity": 1,
+    "price": 6.40,
+    "brand": "Glucophage"
+  },
+  {
+    "id": "ef101439f1d8475ca7ba90820ba2aa46",
+    "fullName": "Loratadine 10mg",
+    "notes": "Non-drowsy allergy relief",
+    "expiryDate": "2026-08-22",
+    "quantity": 75,
+    "price": 7.20,
+    "brand": "Claritin"
+  },
+  {
+    "id": "d36e93cec7ce4efeb130277b1ad22dce",
+    "fullName": "Aspirin 325mg",
+    "notes": "Pain relief and blood thinner",
+    "expiryDate": "2027-09-01",
+    "quantity": 200,
+    "price": 2.99,
+    "brand": "Bayer"
+  }
+]
