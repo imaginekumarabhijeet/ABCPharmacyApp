@@ -7,5 +7,14 @@
     "priceAtSale": 6.40,
     "totalAmount": 12.80,
     "saleDate": "2026-07-28T15:30:25.0651651Z"
+  },
+  {
+    "id": "b8d2a5b0068643618883789213b9cf3f",
+    "medicineId": "7082b13b75a44ad1b4081a173cfdd591",
+    "medicineName": "Zerodol-TH",
+    "quantitySold": 5,
+    "priceAtSale": 200,
+    "totalAmount": 1000,
+    "saleDate": "2026-07-29T03:48:35.3085767Z"
   }
 ]

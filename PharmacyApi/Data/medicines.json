@@ -70,5 +70,14 @@
     "quantity": 200,
     "price": 2.99,
     "brand": "Bayer"
+  },
+  {
+    "id": "7082b13b75a44ad1b4081a173cfdd591",
+    "fullName": "Zerodol-TH",
+    "notes": "Muscle Relaxant",
+    "expiryDate": "2027-07-30",
+    "quantity": 25,
+    "price": 200,
+    "brand": "Cipla"
   }
 ]

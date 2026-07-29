@@ -20,7 +20,7 @@ public class MedicineRepository
         {
             var term = search.Trim();
             items = items
-                .Where(m => Matches(m.FullName, term) || Matches(m.Brand, term) || Matches(m.Notes, term))
+                .Where(m => Matches(m.FullName, term))
                 .ToList();
         }
 
