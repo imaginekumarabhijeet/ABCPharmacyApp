@@ -2,12 +2,7 @@ using System.Text.Json;
 
 namespace PharmacyApi.Data;
 
-/// <summary>
-/// Simple JSON-file-backed collection store. Registered as a singleton per entity type so the
-/// internal semaphore actually serializes concurrent read-modify-write access across requests.
-/// Reads and writes stream directly to/from the file instead of buffering the whole document as
-/// a string, so memory use stays flat as the file grows.
-/// </summary>
+
 public class JsonFileStore<T>
 {
     private readonly string _filePath;
@@ -48,11 +43,7 @@ public class JsonFileStore<T>
         }
     }
 
-    /// <summary>
-    /// Reads the current items, applies <paramref name="mutate"/>, persists the result, and
-    /// returns whatever <paramref name="mutate"/> returns - all while holding the file lock, so
-    /// the read-modify-write cycle is atomic with respect to other callers of this store.
-    /// </summary>
+    
     public async Task<TResult> MutateAsync<TResult>(Func<List<T>, TResult> mutate)
     {
         await _lock.WaitAsync();
@@ -89,8 +80,7 @@ public class JsonFileStore<T>
 
     private async Task WriteToDiskAsync(List<T> items)
     {
-        // Write to a temp file and swap it in, so a crash mid-write can't leave a truncated
-        // or partially-written JSON file behind.
+        
         var tempPath = $"{_filePath}.{Guid.NewGuid():N}.tmp";
 
         await using (var stream = new FileStream(

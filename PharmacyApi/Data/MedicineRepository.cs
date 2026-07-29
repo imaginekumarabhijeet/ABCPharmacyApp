@@ -42,10 +42,7 @@ public class MedicineRepository
         });
     }
 
-    /// <summary>
-    /// Atomically checks stock and decrements it. Runs inside the store's lock so concurrent
-    /// sell requests for the same medicine can't oversell.
-    /// </summary>
+    
     public Task<(bool Success, string? Error, Medicine? Medicine)> TryDecrementQuantityAsync(string id, int quantity)
     {
         return _store.MutateAsync(items =>
